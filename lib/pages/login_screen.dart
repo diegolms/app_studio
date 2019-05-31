@@ -830,9 +830,6 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
   
-  gotoHome() {
-     Navigator.of(context).pushNamed(HomePage.tag);
-  }
 
   PageController _controller = new PageController(initialPage: 1, viewportFraction: 1.0);
 
