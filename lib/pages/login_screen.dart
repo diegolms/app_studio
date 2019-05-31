@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen>
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Awesome",
+                  "Bora Ensaiar?",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,
