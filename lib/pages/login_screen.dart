@@ -250,7 +250,7 @@ class _LoginScreenState extends State<LoginScreen>
             padding: EdgeInsets.all(120.0),
             child: Center(
               child: Icon(
-                Icons.headset_mic,
+                Icons.mic,
                 color: Colors.redAccent,
                 size: 50.0,
               ),
@@ -583,7 +583,7 @@ class _LoginScreenState extends State<LoginScreen>
             padding: EdgeInsets.all(100.0),
             child: Center(
               child: Icon(
-                Icons.headset_mic,
+                Icons.mic,
                 color: Colors.redAccent,
                 size: 50.0,
               ),
