@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
 		return Scaffold(
 			backgroundColor: Colors.white,
 			body: new SingleChildScrollView(
-				 child: LoginScreen3()
+				 child: LoginScreen()
 			),
 		);
 	}		
