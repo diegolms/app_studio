@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static String tag = 'login-screen';
   @override
   _LoginScreenState createState() => new _LoginScreenState();
 }
@@ -390,7 +391,9 @@ class _LoginScreenState extends State<LoginScreen>
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     color: Colors.redAccent,
-                    onPressed: () => {},
+                    onPressed: () => {
+						 Navigator.of(context).pushNamed(HomePage.tag);
+					},
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -821,6 +824,10 @@ class _LoginScreenState extends State<LoginScreen>
       duration: Duration(milliseconds: 800),
       curve: Curves.bounceOut,
     );
+  }
+  
+  gotoHome() {
+     Navigator.of(context).pushNamed(HomePage.tag);
   }
 
   PageController _controller = new PageController(initialPage: 1, viewportFraction: 1.0);

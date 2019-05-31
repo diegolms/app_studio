@@ -1,103 +1,216 @@
 import 'package:flutter/material.dart';
-//import 'package:hello_world/fragments/dashboard.dart';
-//import 'package:hello_world/fragments/categorias.dart';
-//import 'package:hello_world/fragments/lancamentos.dart';
-//import 'package:hello_world/fragments/relatorios.dart';
-//import 'package:hello_world/fragments/condominos.dart';
 
-class DrawerItem {
-  String title;
-  IconData icon;
-  DrawerItem(this.title, this.icon);
-}
 
 class HomePage extends StatefulWidget {
-  static String tag = 'login-page';
-
-  final drawerItems = [
-    new DrawerItem("Dashboard", Icons.dashboard),
-    new DrawerItem("Condôminos", Icons.people),
-    new DrawerItem("Categorias", Icons.category),
-    new DrawerItem("Lançamentos", Icons.attach_money),
-    new DrawerItem("Sair", Icons.exit_to_app)
-  ];
-
+  static String tag = 'home-page';
   @override
-  State<StatefulWidget> createState() {
-    return new HomePageState();
+  _HomePageState createState() => new _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        leading: new FlatButton(
+            onPressed: () => {},
+            child: new Icon(
+              Icons.menu,
+              color: Colors.white,
+            )),
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        //title: new Text("Design Inspiration"),
+        actions: <Widget>[new Icon(Icons.more_horiz)],
+      ),
+      backgroundColor: Colors.white,
+      body: new Stack(
+        children: [
+          new Container(
+            child: new Transform.translate(
+              offset: new Offset(0.0, -56.0),
+              child: new ClipPath(
+                clipper: new MyClipper(),
+                child: new Stack(
+                  children: [
+                    new Image.network(
+                      "https://thumbs.dreamstime.com/b/sky-birds-background-5725652.jpg",
+                      fit: BoxFit.cover,
+                    ),
+                    new Opacity(
+                      opacity: 0.5,
+                      child: new Container(color: Colors.blueGrey),
+                    ),
+                    new Transform.translate(
+                      offset: Offset(0.0, 80.0),
+                      child: new ListTile(
+                        leading: new CircleAvatar(
+                          child: new Container(
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(
+                                fit: BoxFit.fill,
+                                image: NetworkImage(
+                                    "https://avatars2.githubusercontent.com/u/3234592?s=460&v=4"),
+                              ),
+                            ),
+                          ),
+                        ),
+                        title: new Text(
+                          "Samarth Agarwal",
+                          style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: 24.0,
+                              letterSpacing: 2.0),
+                        ),
+                        subtitle: new Text(
+                          "Lead Designer",
+                          style: new TextStyle(
+                              color: Colors.white,
+                              fontSize: 12.0,
+                              letterSpacing: 2.0),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          new Positioned(
+            top: 200.0,
+            left: 320.0,
+            child: new FloatingActionButton(
+              onPressed: () => {},
+              backgroundColor: Colors.pinkAccent,
+              child: new Icon(Icons.sort),
+            ),
+          ),
+          new Transform.translate(
+            offset: Offset(0.0, 220.0),
+            child: new Column(
+              children: <Widget>[],
+            ),
+          ),
+          new Container(
+              child: new Column(
+            children: <Widget>[
+              new Container(height: 220.0),
+              new Expanded(
+                child: new Column(
+                  children: <Widget>[
+                    new ListTile(
+                      title: new Padding(
+                        padding: const EdgeInsets.only(left: 30.0),
+                        child: new Text(
+                          "My Tasks",
+                          style: new TextStyle(fontSize: 30.0),
+                        ),
+                      ),
+                      subtitle: new Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 30.0),
+                        child: new Text(
+                          "February 20, 2018",
+                          style:
+                              new TextStyle(color: Colors.grey, fontSize: 12.0),
+                        ),
+                      ),
+                    ),
+                    new Flexible(
+                      child: new ListView(
+                        scrollDirection: Axis.vertical,
+                        children: <Widget>[
+                          new TaskTile(
+                            color: Colors.redAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.blueAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.greenAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.purpleAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.yellowAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.deepPurpleAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.deepOrangeAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.green,
+                          ),
+                          new TaskTile(
+                            color: Colors.redAccent,
+                          ),
+                          new TaskTile(
+                            color: Colors.blueAccent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ))
+        ],
+      ),
+    );
   }
 }
 
-class HomePageState extends State<HomePage> {
-  int _selectedDrawerIndex = 0;
-
-  _getDrawerItemWidget(int pos) {
-    switch (pos) {
-      case 0:
-        //return new Dashboard();
-      case 1:
-        //return new Condominos();
-      case 2:
-       // return new Categorias();
-      case 3:
-       // return new Lancamentos();
-      case 4:
-       // return new Lancamentos();
-
-      default:
-        return new Text("Error");
-    }
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path p = new Path();
+    p.lineTo(size.width, 0.0);
+    p.lineTo(size.width, size.height / 2);
+    p.lineTo(0.0, size.height / 3);
+    p.close();
+    return p;
   }
-  
-  _onSelectItem(int index) {
-    setState(() => _selectedDrawerIndex = index);
-    Navigator.of(context).pop(); // close the drawer
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) {
+    return true;
   }
+}
+
+class TaskTile extends StatelessWidget {
+  final Color color;
+
+  TaskTile({Key key, this.color});
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> drawerOptions = [];
-    for (var i = 0; i < widget.drawerItems.length; i++) {
-      var d = widget.drawerItems[i];
-      drawerOptions.add(
-        new ListTile(
-          leading: new Icon(d.icon),
-          title: new Text(d.title),
-          selected: i == _selectedDrawerIndex,
-          onTap: () => _onSelectItem(i),
-        )
-      );
-    }
-
-    return new Scaffold(
-      appBar: new AppBar(
-        // here we display the title corresponding to the fragment
-        // you can instead choose to have a static title
-        //title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+    return new ListTile(
+      leading: new CircleAvatar(
+        backgroundColor: this.color,
+        radius: 8.0,
       ),
-      drawer: new Drawer(
-        child: new Column(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-                accountName: new Text("Diego Lopes"), 
-                accountEmail: new Text("lmsilva.diego@gmail.com"),
-                decoration: new BoxDecoration(
-                  
-                    color: Color.fromRGBO(58, 66, 86, 1.0),
-                ),
-                
-                currentAccountPicture: CircleAvatar(
-                  backgroundImage: AssetImage('assets/alucard.jpg'),
-                  
-                  ),
-                ),
-
-            new Column(children: drawerOptions)
-          ],
+      title: new Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: new Text(
+          "Make new icons",
+          style: new TextStyle(fontSize: 18.0),
         ),
       ),
-      body: _getDrawerItemWidget(_selectedDrawerIndex),
+      subtitle: new Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: new Text(
+          "WebApp",
+          style: new TextStyle(fontSize: 12.0, color: Colors.grey),
+        ),
+      ),
+      trailing: new Text(
+        "5pm",
+        style: new TextStyle(fontSize: 12.0, color: Colors.grey),
+      ),
     );
   }
 }
