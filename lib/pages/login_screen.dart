@@ -392,9 +392,12 @@ class _LoginScreenState extends State<LoginScreen>
                       borderRadius: new BorderRadius.circular(30.0),
                     ),
                     color: Colors.redAccent,
-                    onPressed: () => {
-						 Navigator.of(context).pushNamed(HomeScreen.tag);
-					},
+					onPressed: () {
+								Navigator.push(
+								  context,
+								  MaterialPageRoute(builder: (context) => HomeScreen()),
+								);
+							  },
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
