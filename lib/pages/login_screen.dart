@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app_studio/pages/home_page.dart'; 
+import 'package:app_studio/pages/home_screen.dart'; 
 
 class LoginScreen extends StatefulWidget {
   static String tag = 'login-screen';
@@ -393,7 +393,7 @@ class _LoginScreenState extends State<LoginScreen>
                     ),
                     color: Colors.redAccent,
                     onPressed: () => {
-						 Navigator.of(context).pushNamed(HomePage.tag);
+						 Navigator.of(context).pushNamed(HomeScreen.tag);
 					},
                     child: new Container(
                       padding: const EdgeInsets.symmetric(

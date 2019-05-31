@@ -1,4 +1,4 @@
-import 'package:app_studio/pages/home_page.dart';
+import 'package:app_studio/pages/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_studio/pages/login_screen.dart';
 
