@@ -1,1 +1,3 @@
-# app_studio
+# AppStudio
+
+# Studios para Ensaio de Bandas
